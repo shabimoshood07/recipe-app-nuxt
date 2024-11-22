@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import Aura from "@primevue/themes/aura";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+  css: ["~/assets/css/main.css"],
 
   future: {
     compatibilityVersion: 4,
@@ -40,10 +42,21 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@nuxt/icon",
     "@nuxt/image",
+    "@primevue/nuxt-module",
   ],
   googleFonts: {
     families: {
       Montserrat: true,
+    },
+  },
+  image: {
+    domains: ["https://dummyjson.com"],
+  },
+  primevue: {
+    options: {
+      theme: {
+        preset: Aura,
+      },
     },
   },
 });
