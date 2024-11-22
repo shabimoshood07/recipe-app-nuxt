@@ -43,6 +43,8 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@primevue/nuxt-module",
+    "@pinia/nuxt",
+    "pinia-plugin-persistedstate/nuxt",
   ],
   googleFonts: {
     families: {
@@ -57,6 +59,12 @@ export default defineNuxtConfig({
       theme: {
         preset: Aura,
       },
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
 });
