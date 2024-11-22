@@ -2,7 +2,7 @@
 import { useAuth } from "~~/store/auth";
 
 const { userDetails, showLoginModal } = storeToRefs(useAuth());
-const { handleLogout, handleLogin } = useAuth();
+const { handleLogout } = useAuth();
 const sidebarVisible = ref(false);
 </script>
 

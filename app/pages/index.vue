@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const perPage = ref(10);
-const page = ref(10);
 const limit = ref(10);
 const skip = ref(0);
 const { data, error, refresh, execute } = await useFetch<RecipeResponse>(
@@ -9,12 +7,6 @@ const { data, error, refresh, execute } = await useFetch<RecipeResponse>(
     watch: [limit, skip],
   }
 );
-
-// watch(skip, (newVal, oldVal) => {
-//   console.log(oldVal);
-//   console.log(newVal);
-//   refresh();
-// });
 
 useSeoMeta({
   title: "Nuxtcipes",

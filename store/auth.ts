@@ -48,7 +48,6 @@ export const useAuth = defineStore(
         },
       })
         .then((res) => {
-          console.log(res);
           if (!res.ok) {
             return handleLogout();
           }
@@ -67,12 +66,9 @@ export const useAuth = defineStore(
   },
   {
     persist: {
-      //   storage: localStorage,
-      //   pick: ["someState"],
       storage: piniaPluginPersistedstate.localStorage(),
       beforeHydrate: (ctx) => {
         console.log(`about to hydrate '${ctx.store.$id}'`);
-        // console.log(`about to hydrate '${ctx.store.$id}'`);
       },
     },
   }
