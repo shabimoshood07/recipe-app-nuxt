@@ -6,6 +6,10 @@ export const useAuth = defineStore(
     const isLoggedIn = ref(true);
     const showLoginModal = ref(false);
     const userDetails = ref<LoginResponse | null>(null);
+    const searchLimit = ref(10);
+    const searchSkip = ref(0);
+    const searchText = ref("");
+    const loginError = ref("");
     const handleLogin = ({
       username,
       password,
@@ -13,16 +17,16 @@ export const useAuth = defineStore(
       username: string;
       password: string;
     }) => {
+      loginError.value = "";
       $fetch<LoginResponse>("https://dummyjson.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
           username,
           password,
-          expiresInMins: 30,
+          expiresInMins: 360,
         }),
       })
         .then((res) => {
@@ -30,10 +34,11 @@ export const useAuth = defineStore(
           isLoggedIn.value = true;
           showLoginModal.value = false;
         })
-        .catch((error) => {
-          throw error;
+        .catch(() => {
+          loginError.value = "Login error";
         });
     };
+
     const handleLogout = () => {
       isLoggedIn.value = false;
       userDetails.value = null;
@@ -62,6 +67,10 @@ export const useAuth = defineStore(
       userDetails,
       handleLogout,
       getCurrentUserAuth,
+      searchLimit,
+      searchSkip,
+      searchText,
+      loginError,
     };
   },
   {

@@ -7,7 +7,7 @@ const sidebarVisible = ref(false);
 </script>
 
 <template>
-  <header class="py-4 border-b sticky top-0 backdrop-blur-2xl">
+  <header class="py-4 border-b sticky top-0 backdrop-blur-2xl z-50">
     <nav class="flex container items-center justify-between">
       <NuxtLink to="/" class="flex gap-1 items-center">
         <Icon

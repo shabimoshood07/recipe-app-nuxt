@@ -2,21 +2,20 @@
 import { useAuth } from "~~/store/auth";
 
 const { handleLogin } = useAuth();
-const { showLoginModal } = storeToRefs(useAuth());
+const { showLoginModal, loginError } = storeToRefs(useAuth());
 const username = ref("");
 const password = ref("");
 </script>
 
 <template>
   <div class="card flex justify-center">
-    <!-- <Button label="Show" @click="visible = true" /> -->
-    <!-- v-model:visible="visible" -->
     <Dialog
       v-model:visible="showLoginModal"
       modal
       header="Login"
       :style="{ width: '25rem' }"
     >
+      <p class="text-base text-center text-red-500 mb-6">{{ loginError }}</p>
       <div class="flex items-center gap-4 mb-4">
         <label for="username" class="font-semibold w-24">Username</label>
         <InputText
