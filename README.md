@@ -1,4 +1,4 @@
-# Project Name
+# Nuxt-Recipe-App
 > Receipe App
 > Live demo [_here_](https://).
 
