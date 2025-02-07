@@ -28,7 +28,7 @@ Project is created with:
 
 
 ## Features
-List the ready features here:
+
 👉 **Authentication**: User authentication using list of users in the dummy api 'https://dummyjson.com/users'
 
 👉 **Recipe Info**: View info on selected recipe
